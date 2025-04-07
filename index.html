@@ -1,22 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MLM Simulator</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    body { font-family: sans-serif; background: #111; color: #0f0; padding: 20px; }
-    .member { margin-left: 20px; border-left: 1px dashed #0f0; padding-left: 10px; }
-    .rekrut-form { margin-top: 5px; }
-    input, button { background: #000; color: #0f0; border: 1px solid #0f0; padding: 5px; margin-top: 5px; }
-    input:focus, button:hover { outline: none; border-color: lime; }
-    #chart-container { max-width: 600px; margin-top: 40px; background: #222; padding: 20px; border: 1px solid #0f0; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #222;
+      padding: 20px;
+    }
+    h1, h2, h3 {
+      color: #2e7d32;
+    }
+    .member {
+      margin-left: 20px;
+      border-left: 2px solid #ccc;
+      padding-left: 10px;
+      background: #fff;
+      border-radius: 8px;
+      margin-top: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    .rekrut-form {
+      margin-top: 5px;
+    }
+    input, button {
+      background: #fff;
+      color: #333;
+      border: 1px solid #aaa;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    input:focus, button:hover {
+      outline: none;
+      border-color: #2e7d32;
+    }
+    #chart-container {
+      max-width: 700px;
+      margin-top: 40px;
+      background: #fff;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
     #overlay {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.9);
-      color: #0f0;
+      background: rgba(255, 255, 255, 0.95);
+      color: #222;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -29,10 +66,15 @@
       margin-top: 20px;
       padding: 10px 20px;
       font-size: 16px;
+      background-color: #2e7d32;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
     }
     .guide {
-      background: #222;
-      border: 1px solid #0f0;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
       padding: 15px;
       margin: 20px 0;
     }
@@ -40,25 +82,28 @@
 </head>
 <body>
   <div id="overlay">
-    <h2>⚠️ EDUKASI DULU BRO ⚠️</h2>
+    <h2>📢 EDUKASI DULU!</h2>
     <p>
       Sistem MLM seringkali menjanjikan kekayaan instan, tapi realitanya banyak korban yang rugi karena hanya upline yang terus diuntungkan.
       Jangan sampai tergoda cuan cepat tanpa mikir risiko. Pahami skema-nya, waspada jebakan investasi bodong.
     </p>
-    <button onclick="startSimulation()">GUE PAHAM, LANJUT!</button>
+    <button onclick="startSimulation()">SAYA PAHAM, LANJUTKAN</button>
   </div>
 
-  <h1>MLM Simulator: Jalan Cepat Menuju Bangkrut</h1>
+  <h1>Simulasi MLM: Jalan Pintas Menuju Bangkrut</h1>
 
   <div class="guide">
-    <h3>📚 Panduan</h3>
-    <p><strong>1. Upline</strong> = Orang yang ngajak kamu join. Dia dapet bonus tiap kamu rekrut orang baru.</p>
-    <p><strong>2. Downline</strong> = Orang yang kamu ajak join. Mereka ada di bawah kamu, dan bonusnya bisa naik ke kamu.</p>
-    <p><strong>3. Bonus</strong> = Setiap kamu rekrut orang baru, kamu dapet 100. Upline kamu dapet 10% dari itu. Semakin banyak downline, semakin kaya kamu... kalau di atas, ya.</p>
-    <p><strong>4. Simulasi ini cuma buat edukasi!</strong> Biar gak kejebak beneran di dunia nyata.</p>
+    <h3>📘 Penjelasan Singkat (Untuk Semua Umur)</h3>
+    <ul>
+      <li><strong>Upline</strong>: Orang yang ngajak kamu join. Dia dapet bonus tiap kamu rekrut orang.</li>
+      <li><strong>Downline</strong>: Orang yang kamu ajak join. Mereka ada di bawah kamu, dan kamu dapet bonus dari mereka.</li>
+      <li><strong>Bonus</strong>: Tiap rekrut orang baru, dapet 100. Upline dapet 10% dari rekrutan kamu.</li>
+      <li><strong>Penting</strong>: Ini hanya simulasi edukasi. Jangan keblinger beneran.</li>
+    </ul>
   </div>
 
   <div id="tree"></div>
+
   <div id="chart-container">
     <canvas id="bonusChart"></canvas>
   </div>

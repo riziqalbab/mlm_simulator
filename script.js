@@ -28,7 +28,7 @@ class Member {
   function renderTree(member, container) {
     const div = document.createElement("div");
     div.className = "member";
-    div.innerHTML = `<strong>${member.name}</strong> - Bonus: ${member.bonus.toFixed(2)}`;
+    div.innerHTML = `<strong>${member.name}</strong> - Bonus: Rp ${member.bonus.toFixed(2)}`;
 
     const form = document.createElement("form");
     form.className = "rekrut-form";
@@ -41,7 +41,7 @@ class Member {
 
     form.innerHTML = `
       <input name="name" placeholder="Nama downline" required>
-      <button type="submit">Rekrut</button>
+      <button type="submit">Tambah Downline</button>
     `;
 
     div.appendChild(form);
@@ -68,8 +68,8 @@ class Member {
       datasets: [{
         label: 'Bonus per Member',
         data: bonuses,
-        backgroundColor: 'rgba(0, 255, 0, 0.4)',
-        borderColor: '#0f0',
+        backgroundColor: 'rgba(76, 175, 80, 0.6)',
+        borderColor: '#388e3c',
         borderWidth: 1
       }]
     };
@@ -83,8 +83,8 @@ class Member {
           legend: { display: false }
         },
         scales: {
-          x: { ticks: { color: '#0f0' } },
-          y: { ticks: { color: '#0f0' } }
+          x: { ticks: { color: '#222' } },
+          y: { ticks: { color: '#222' } }
         }
       }
     };
